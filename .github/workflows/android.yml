@@ -18,11 +18,12 @@ jobs:
       with:
         node-version: 24
 
+    # FIXED: Upgraded Java to version 21 to match Capacitor's compilation settings
     - name: Set up Java JDK
       uses: actions/setup-java@v4
       with:
         distribution: 'temurin'
-        java-version: '17'
+        java-version: '21'
 
     - name: Install Dependencies & Build Web App
       env:
@@ -36,7 +37,7 @@ jobs:
       run: |
         npm install @capacitor/core @capacitor/cli
         
-        # FIXED: Passes parameters correctly without using the invalid --noprompt flag
+        # Initializes capacitor pointing directly to the root dist folder
         npx cap init "Clicker Game" "com.juannity.clicker" --web-dir=dist
         
         npm install @capacitor/android
