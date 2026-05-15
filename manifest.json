@@ -1,0 +1,9 @@
+{
+  "name": "Neon Clicker Legacy",
+  "short_name": "Clicker",
+  "description": "A high-contrast, legacy-compatible incremental clicker game with offline saving.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#000000"
+}
