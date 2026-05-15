@@ -94,25 +94,25 @@ const UPGRADES: Upgrade[] = [
   { id: 'atomic-synthesis', name: 'Atomic Synthesis', description: 'Advanced production technique.', baseCost: 5000000, type: 'auto', value: 1000, icon: <Cpu className="w-5 h-5 text-cyan-600" />, rarity: 'Unique', category: 'Automation' },
 
   // Special
-  { id: 'shard-resonator', name: 'Shard Resonator', description: 'Increases shard gain! Each 100k points grants +0.1 shards.', baseCost: 100000, type: 'auto', value: 0.1, icon: <Star className="w-5 h-5 text-amber-500" />, rarity: 'Rare', category: 'Special' },
-  { id: 'entropy-engine', name: 'Entropy Engine', description: 'Periodically taps into cosmic energy for a random boost.', baseCost: 500000, type: 'auto', value: 0, icon: <Cpu className="w-5 h-5 text-red-500" />, rarity: 'Epic', category: 'Special' },
-  { id: 'point-vacuum', name: 'Point Vacuum', description: 'When idle for 5s, gain a 1.5x CPS boost.', baseCost: 250000, type: 'auto', value: 0, icon: <Target className="w-5 h-5 text-purple-500" />, rarity: 'Rare', category: 'Special' },
-  { id: 'point-glitch', name: 'Point Glitch', description: 'Every 10th click gives 100x points.', baseCost: 50000, type: 'click', value: 0, icon: <Cpu className="w-5 h-5 text-green-500" />, rarity: 'Rare', category: 'Special' },
-  { id: 'combo-catalyst', name: 'Combo Catalyst', description: 'Increases combo multiplier by +0.5, but max combo is halved.', baseCost: 200000, type: 'click', value: 0.5, icon: <Zap className="w-5 h-5 text-orange-500" />, rarity: 'Rare', category: 'Special' },
-  { id: 'idle-master', name: 'Idle Master', description: 'If you do not click for 10s, auto-production doubles.', baseCost: 500000, type: 'auto', value: 0, icon: <Play className="w-5 h-5 text-cyan-500" />, rarity: 'Epic', category: 'Special' },
-  { id: 'click-battery', name: 'Click Battery', description: 'Every manual click adds +1 to battery, powers auto-prod.', baseCost: 800000, type: 'click', value: 0, icon: <Zap className="w-5 h-5 text-indigo-700" />, rarity: 'Epic', category: 'Special' },
-  { id: 'shard-harvester', name: 'Shard Harvester', description: 'Increases shard gen by +0.01 per 1m points.', baseCost: 1000000, type: 'auto', value: 0.01, icon: <Star className="w-5 h-5 text-amber-700" />, rarity: 'Epic', category: 'Special' },
-  { id: 'time-dilator', name: 'Time Dilator', description: 'All auto-production speeds up over time.', baseCost: 2500000, type: 'auto', value: 0, icon: <RefreshCw className="w-5 h-5 text-slate-600" />, rarity: 'Legendary', category: 'Special' },
-  { id: 'prestige-booster', name: 'Prestige Booster', description: 'Increases prestige shard yield by +10%.', baseCost: 5000000, type: 'auto', value: 0.1, icon: <Trophy className="w-5 h-5 text-amber-600" />, rarity: 'Legendary', category: 'Special' },
-  { id: 'market-crash', name: 'Market Crash', description: 'Reduce cost of all upgrades by 50% for 30s.', baseCost: 10000000, type: 'click', value: 0, icon: <Trash2 className="w-5 h-5 text-red-500" />, rarity: 'Legendary', cooldownSecs: 300, category: 'Special' },
-  { id: 'click-echo', name: 'Click Echo', description: 'Every manual click triggers a free auto-clicker pulse.', baseCost: 20000000, type: 'click', value: 1, icon: <Volume2 className="w-5 h-5 text-blue-400" />, rarity: 'Legendary', category: 'Special' },
-  { id: 'prestige-synergy', name: 'Soul Catalyst', description: 'Adds +1.0 CPS for every Prestige Point owned.', baseCost: 5000, type: 'auto', value: 1.0, icon: <Star className="w-5 h-5 text-amber-500" />, rarity: 'Rare', category: 'Special' },
-  { id: 'combo-multiplier', name: 'Combo Multiplier', description: 'Enables the combo system. While active, production is x3.', baseCost: 7500, type: 'click', value: 1, icon: <Cpu className="w-5 h-5 text-cyan-500" />, rarity: 'Rare', category: 'Special' },
-  { id: 'combo-upgrader', name: 'Combo Upgrader', description: 'Unlocks the 4x combo tier (requires 200 combo points).', baseCost: 750000, type: 'click', value: 1, icon: <Cpu className="w-5 h-5 text-indigo-500" />, rarity: 'Epic', category: 'Special' },
-  { id: 'combo-master', name: 'Combo Master', description: 'Unlocks the 6x combo tier (requires 400 combo points).', baseCost: 7500000, type: 'click', value: 1, icon: <Cpu className="w-5 h-5 text-rose-500" />, rarity: 'Epic', category: 'Special' },
-  { id: 'combo-overdrive', name: 'Combo Overdrive', description: 'Unlocks the 10x combo tier (requires 800 combo points).', baseCost: 50000000, type: 'click', value: 1, icon: <Zap className="w-5 h-5 text-red-600" />, rarity: 'Legendary', category: 'Special' },
+  { id: 'shard-resonator', name: 'Shard Resonator', description: 'Increases shard gain! Each 100k points grants +0.1 shards.', baseCost: 100000, type: 'auto', value: 0.1, icon: <Star className="w-5 h-5 text-amber-500" />, rarity: 'Rare', category: 'Special', maxCount: 1 },
+  { id: 'entropy-engine', name: 'Entropy Engine', description: 'Periodically taps into cosmic energy for a random boost.', baseCost: 500000, type: 'auto', value: 0, icon: <Cpu className="w-5 h-5 text-red-500" />, rarity: 'Epic', category: 'Special', maxCount: 1 },
+  { id: 'point-vacuum', name: 'Point Vacuum', description: 'When idle for 5s, gain a 1.5x CPS boost.', baseCost: 250000, type: 'auto', value: 0, icon: <Target className="w-5 h-5 text-purple-500" />, rarity: 'Rare', category: 'Special', maxCount: 1 },
+  { id: 'point-glitch', name: 'Point Glitch', description: 'Every 10th click gives 100x points.', baseCost: 50000, type: 'click', value: 0, icon: <Cpu className="w-5 h-5 text-green-500" />, rarity: 'Rare', category: 'Special', maxCount: 1 },
+  { id: 'combo-catalyst', name: 'Combo Catalyst', description: 'Increases combo multiplier by +0.5, but max combo is halved.', baseCost: 200000, type: 'click', value: 0.5, icon: <Zap className="w-5 h-5 text-orange-500" />, rarity: 'Rare', category: 'Special', maxCount: 1 },
+  { id: 'idle-master', name: 'Idle Master', description: 'If you do not click for 10s, auto-production doubles.', baseCost: 500000, type: 'auto', value: 0, icon: <Play className="w-5 h-5 text-cyan-500" />, rarity: 'Epic', category: 'Special', maxCount: 1 },
+  { id: 'click-battery', name: 'Click Battery', description: 'Every manual click adds +1 to battery, powers auto-prod.', baseCost: 800000, type: 'click', value: 0, icon: <Zap className="w-5 h-5 text-indigo-700" />, rarity: 'Epic', category: 'Special', maxCount: 1 },
+  { id: 'shard-harvester', name: 'Shard Harvester', description: 'Increases shard gen by +0.01 per 1m points.', baseCost: 1000000, type: 'auto', value: 0.01, icon: <Star className="w-5 h-5 text-amber-700" />, rarity: 'Epic', category: 'Special', maxCount: 1 },
+  { id: 'time-dilator', name: 'Time Dilator', description: 'All auto-production speeds up over time.', baseCost: 2500000, type: 'auto', value: 0, icon: <RefreshCw className="w-5 h-5 text-slate-600" />, rarity: 'Legendary', category: 'Special', maxCount: 1 },
+  { id: 'prestige-booster', name: 'Prestige Booster', description: 'Increases prestige shard yield by +10%.', baseCost: 5000000, type: 'auto', value: 0.1, icon: <Trophy className="w-5 h-5 text-amber-600" />, rarity: 'Legendary', category: 'Special', maxCount: 1 },
+  { id: 'market-crash', name: 'Market Crash', description: 'Reduce cost of all upgrades by 50% for 30s.', baseCost: 10000000, type: 'click', value: 0, icon: <Trash2 className="w-5 h-5 text-red-500" />, rarity: 'Legendary', cooldownSecs: 300, category: 'Special', maxCount: 1 },
+  { id: 'click-echo', name: 'Click Echo', description: 'Every manual click triggers a free auto-clicker pulse.', baseCost: 20000000, type: 'click', value: 1, icon: <Volume2 className="w-5 h-5 text-blue-400" />, rarity: 'Legendary', category: 'Special', maxCount: 1 },
+  { id: 'prestige-synergy', name: 'Soul Catalyst', description: 'Adds +1.0 CPS for every Prestige Point owned.', baseCost: 5000, type: 'auto', value: 1.0, icon: <Star className="w-5 h-5 text-amber-500" />, rarity: 'Rare', category: 'Special', maxCount: 1 },
+  { id: 'combo-multiplier', name: 'Combo Multiplier', description: 'Enables the combo system. While active, production is x3.', baseCost: 7500, type: 'click', value: 1, icon: <Cpu className="w-5 h-5 text-cyan-500" />, rarity: 'Rare', category: 'Special', maxCount: 1 },
+  { id: 'combo-upgrader', name: 'Combo Upgrader', description: 'Unlocks the 3x combo tier (requires 100 combo points).', baseCost: 750000, type: 'click', value: 1, icon: <Cpu className="w-5 h-5 text-indigo-500" />, rarity: 'Epic', category: 'Special', maxCount: 1 },
+  { id: 'combo-master', name: 'Combo Master', description: 'Unlocks the 5x combo tier (requires 400 combo points).', baseCost: 7500000, type: 'click', value: 1, icon: <Cpu className="w-5 h-5 text-rose-500" />, rarity: 'Epic', category: 'Special', maxCount: 1 },
+  { id: 'combo-overdrive', name: 'Combo Overdrive', description: 'Unlocks the 10x combo tier (requires 800 combo points).', baseCost: 50000000, type: 'click', value: 1, icon: <Zap className="w-5 h-5 text-red-600" />, rarity: 'Legendary', category: 'Special', maxCount: 1 },
   { id: 'bulk-procurement', name: 'Bulk Procurement', description: 'Reduces all upgrade costs by 15% per level.', baseCost: 350000, type: 'click', value: 0.15, icon: <Layers className="w-5 h-5 text-slate-500" />, rarity: 'Epic', maxCount: 1, category: 'Special' },
-  { id: 'minesweeper', name: 'Minesweeper', description: 'A game of chance! Gain huge points if you avoid mines (10% chance to lose score).', baseCost: 100000, type: 'click', value: 0, icon: <Target className="w-5 h-5 text-slate-600" />, rarity: 'Unique', category: 'Special' }
+  { id: 'minesweeper', name: 'Minesweeper', description: 'A game of chance! Gain huge points if you avoid mines (10% chance to lose score).', baseCost: 100000, type: 'click', value: 0, icon: <Target className="w-5 h-5 text-slate-600" />, rarity: 'Unique', category: 'Special', maxCount: 1 }
 ];
 
 const ACHIEVEMENTS: Achievement[] = [
@@ -129,8 +129,28 @@ const ACHIEVEMENTS: Achievement[] = [
   { id: 'max-prestige', title: 'Godlike status', description: 'Reach 50 Prestige Points.', requirement: (stats) => stats.prestigePoints >= 50, icon: <Trophy className="w-5 h-5 text-yellow-600" /> }
 ];
 
+const calculateBaseCPS = (ownedUpgrades: Record<string, number>, prestigePoints: number, ownedPrestigeUpgrades: Record<string, number>) => {
+    let total = 0;
+    const autoClickerBonus = ownedUpgrades['advanced-auto-clicker'] ? 2 : 1;
+    total += (ownedUpgrades['auto-clicker'] || 0) * 1 * autoClickerBonus;
+    total += (ownedUpgrades['auto-clicker-t2'] || 0) * 5;
+    total += (ownedUpgrades['auto-clicker-t3'] || 0) * 25;
+    total += (ownedUpgrades['auto-clicker-t4'] || 0) * 125;
+    if (ownedUpgrades['prestige-synergy']) {
+      total += ownedUpgrades['prestige-synergy'] * prestigePoints * 1.0;
+    }
+    if (ownedPrestigeUpgrades['auto-efficiency']) {
+      total *= 1.5;
+    }
+    if (ownedUpgrades['point-vacuum'] > 0) {
+        total *= 1.5;
+    }
+    return total;
+};
+
 // ... inside App component ...
 export default function App() {
+
   const [score, setScore] = useState(0);
   const [totalScore, setTotalScore] = useState(0);
   const [ownedUpgrades, setOwnedUpgrades] = useState<Record<string, number>>({});
@@ -160,8 +180,7 @@ export default function App() {
 
   const comboMultiplier = useMemo(() => {
     if (combo >= 800) return 10;
-    if (combo >= 400) return 6;
-    if (combo >= 200) return 4;
+    if (combo >= 400) return 5;
     if (combo >= 100) return 3;
     if (combo > 0) return 2;
     return 1;
@@ -172,6 +191,13 @@ export default function App() {
   const shardMultiplier = useMemo(() => 1 + (prestigePoints * 0.1), [prestigePoints]);
   
   const currentPrestigeThreshold = useMemo(() => INITIAL_PRESTIGE_THRESHOLD * Math.pow(1.5, prestigeCount), [prestigeCount]);
+
+  const formatNumber = (num: number): string => {
+    if (num >= 1e9) return (num / 1e9).toFixed(1) + 'B';
+    if (num >= 1e6) return (num / 1e6).toFixed(1) + 'M';
+    if (num >= 1e3) return (num / 1e3).toFixed(1) + 'k';
+    return Math.floor(num).toLocaleString();
+  };
 
   const [saveMessage, setSaveMessage] = useState<string | null>(null);
   const [critFlash, setCritFlash] = useState(false); // NEW
@@ -198,24 +224,7 @@ export default function App() {
   }, [ownedUpgrades, comboMultiplier, ownedPrestigeUpgrades]);
 
   const cps = useMemo(() => {
-    let total = 0;
-    const autoClickerBonus = ownedUpgrades['advanced-auto-clicker'] ? 2 : 1;
-    total += (ownedUpgrades['auto-clicker'] || 0) * 1 * autoClickerBonus;
-    total += (ownedUpgrades['auto-clicker-t2'] || 0) * 5;
-    total += (ownedUpgrades['auto-clicker-t3'] || 0) * 25;
-    total += (ownedUpgrades['auto-clicker-t4'] || 0) * 125;
-    // Soul Catalyst: Adds +1.0 CPS for every Prestige Point owned
-    if (ownedUpgrades['prestige-synergy']) {
-      total += ownedUpgrades['prestige-synergy'] * prestigePoints * 1.0;
-    }
-    // Auto-Efficiency: Increases all auto production by 50%
-    if (ownedPrestigeUpgrades['auto-efficiency']) {
-      total *= 1.5;
-    }
-    // Point Vacuum boost
-    if (ownedUpgrades['point-vacuum'] > 0 && (currentTime - lastClickTime > 5000)) {
-        total *= 1.5;
-    }
+    const total = calculateBaseCPS(ownedUpgrades, prestigePoints, ownedPrestigeUpgrades);
     return total * comboMultiplier * autoSynthesisMultiplier * activeTempMult;
   }, [ownedUpgrades, prestigePoints, comboMultiplier, autoSynthesisMultiplier, activeTempMult, currentTime, lastClickTime, ownedPrestigeUpgrades]);
 
@@ -245,7 +254,7 @@ export default function App() {
         // Offline calculation
         if (data.lastSaveTime) {
           const offlineTime = (Date.now() - data.lastSaveTime) / 1000;
-          const cpsEst = 50; // Simple approximation
+          const cpsEst = calculateBaseCPS(data.ownedUpgrades || {}, data.prestigePoints || 0, data.ownedPrestigeUpgrades || {});
           const pointsEarned = Math.floor(offlineTime * cpsEst);
           
           if (pointsEarned > 0) {
@@ -416,9 +425,9 @@ export default function App() {
     // Combo logic: Max combo depends on unlocked tiers
     if (ownedUpgrades['combo-multiplier'] > 0) {
       let maxComboPossible = 100;
-      if (ownedUpgrades['combo-overdrive'] > 0) maxComboPossible = 800;
-      else if (ownedUpgrades['combo-master'] > 0) maxComboPossible = 400;
-      else if (ownedUpgrades['combo-upgrader'] > 0) maxComboPossible = 200;
+      if (ownedUpgrades['combo-overdrive'] > 0) maxComboPossible = 1000;
+      else if (ownedUpgrades['combo-master'] > 0) maxComboPossible = 800;
+      else if (ownedUpgrades['combo-upgrader'] > 0) maxComboPossible = 400;
 
       setCombo(prev => Math.min(maxComboPossible, prev + 5));
       setLastClickTime(Date.now());
@@ -870,7 +879,7 @@ export default function App() {
                   <h3 className="text-xl font-black text-slate-800">PERMANENT DELETION</h3>
                   <p className="text-sm text-slate-500 mt-2">
                     Warning: This action is <span className="text-red-600 font-bold underline">IRREVERSIBLE</span>. 
-                    You will lose all {Math.floor(totalScore).toLocaleString()} lifetime points, all Prestige Shards, and all Achievements. 
+                    You will lose all {formatNumber(totalScore)} lifetime points, all Prestige Shards, and all Achievements. 
                     Your legacy will be completely erased.
                   </p>
                 </div>
@@ -927,7 +936,7 @@ export default function App() {
           )}
           <div className="text-right shrink-0">
             <p className="text-[10px] text-slate-500 font-bold uppercase tracking-widest leading-none mb-1">PPS</p>
-            <p className="font-mono text-blue-600 font-bold leading-none">{(cps * globalMultiplier).toLocaleString()}</p>
+            <p className="font-mono text-blue-600 font-bold leading-none">{formatNumber(cps * globalMultiplier)}</p>
           </div>
         </div>
       </header>
@@ -937,7 +946,7 @@ export default function App() {
         <div className="text-center">
           <p className="text-slate-500 text-sm font-medium uppercase tracking-wider mb-1">Current Score</p>
           <h2 className="text-6xl font-black text-slate-900 drop-shadow-sm font-mono tracking-tighter">
-            {Math.floor(score).toLocaleString()}
+            {formatNumber(score)}
           </h2>
         </div>
 
@@ -961,7 +970,7 @@ export default function App() {
                 <Cpu size={14} /> Neural Link
               </span>
               <span className={`text-sm font-black transition-colors duration-300 ${
-                combo >= 800 ? 'text-red-400 animate-pulse' : combo >= 400 ? 'text-rose-400' : combo >= 200 ? 'text-amber-400' : isComboActive ? 'text-cyan-400' : 'text-slate-600'
+                combo >= 800 ? 'text-red-400 animate-pulse' : combo >= 400 ? 'text-rose-400' : combo >= 100 ? 'text-amber-400' : isComboActive ? 'text-cyan-400' : 'text-slate-600'
               }`}>
                 {comboMultiplier > 1 ? `x${comboMultiplier}` : `${Math.floor((combo / 100) * 100)}%`}
               </span>
@@ -971,8 +980,8 @@ export default function App() {
               <motion.div 
                 initial={false}
                 animate={{ 
-                  width: `${(combo / (ownedUpgrades['combo-overdrive'] > 0 ? 800 : ownedUpgrades['combo-master'] > 0 ? 400 : ownedUpgrades['combo-upgrader'] > 0 ? 200 : 100)) * 100}%`,
-                  backgroundColor: combo >= 800 ? '#ef4444' : combo >= 400 ? '#f43f5e' : combo >= 200 ? '#f59e0b' : combo >= 100 ? '#06b6d4' : '#3b82f6'
+                  width: `${(combo / (ownedUpgrades['combo-overdrive'] > 0 ? 800 : ownedUpgrades['combo-master'] > 0 ? 400 : 100)) * 100}%`,
+                  backgroundColor: combo >= 800 ? '#ef4444' : combo >= 400 ? '#f43f5e' : combo >= 100 ? '#f59e0b' : '#3b82f6'
                 }}
                 className="h-full rounded-lg"
                 transition={{ type: 'spring', stiffness: 100, damping: 20 }}
@@ -989,9 +998,9 @@ export default function App() {
             
             <div className="flex justify-between px-1 relative z-10 text-[9px] font-bold text-slate-500 uppercase tracking-tighter">
               <span>x2</span>
-              {ownedUpgrades['combo-upgrader'] > 0 && <span>x3</span>}
-              {ownedUpgrades['combo-master'] > 0 && <span>x5</span>}
-              {ownedUpgrades['combo-overdrive'] > 0 && <span>x10</span>}
+              <span>x3</span>
+              <span>x5</span>
+              <span>x10</span>
             </div>
           </div>
         )}
@@ -1009,7 +1018,7 @@ export default function App() {
           className={`relative w-64 h-64 bg-gradient-to-br rounded-full flex items-center justify-center cursor-pointer border-8 active:border-blue-300 group transition-all duration-200 ${
             critFlash ? 'from-yellow-400 to-yellow-600 border-yellow-300' : 'from-blue-500 to-blue-700 border-blue-400'
           } ${
-            combo >= 400 ? 'shadow-[0_0_60px_rgba(239,68,68,0.6)]' : combo >= 200 ? 'shadow-[0_0_50px_rgba(245,158,11,0.5)]' : isComboActive ? 'shadow-[0_0_40px_rgba(6,182,212,0.4)]' : 'shadow-[0_20px_50px_rgba(59,130,246,0.3)]'
+            combo >= 400 ? 'shadow-[0_0_60px_rgba(239,68,68,0.6)]' : combo >= 100 ? 'shadow-[0_0_50px_rgba(245,158,11,0.5)]' : isComboActive ? 'shadow-[0_0_40px_rgba(6,182,212,0.4)]' : 'shadow-[0_20px_50px_rgba(59,130,246,0.3)]'
           }`}
         >
           <div className="absolute inset-0 rounded-full bg-blue-400 opacity-0 group-hover:opacity-10 transition-opacity" />
@@ -1139,7 +1148,7 @@ export default function App() {
                               <p className="text-xs text-slate-500 mb-1">{upgrade.description}</p>
                               <div className="flex justify-between items-center">
                                 <p className={`text-sm font-black ${isMaxed ? 'text-green-600' : canAfford ? 'text-blue-600' : 'text-slate-400'}`}>
-                                  {isMaxed ? 'Purchased' : `$${cost.toLocaleString()}`}
+                                  {isMaxed ? 'Purchased' : `$${formatNumber(cost)}`}
                                 </p>
                                 {cooldownRemaining > 0 && (
                                   <div className="flex items-center gap-1 text-[10px] font-black text-amber-600 uppercase bg-amber-50 px-2 py-0.5 rounded border border-amber-200">
@@ -1250,7 +1259,7 @@ export default function App() {
                               ) : (
                                 <span className="text-[10px] font-black bg-amber-100 text-amber-700 px-2 py-0.5 rounded-full flex items-center gap-1">
                                   <Star size={10} className="fill-amber-700" />
-                                  {pup.cost}
+                                  {formatNumber(pup.cost)}
                                 </span>
                               )}
                             </div>
@@ -1266,7 +1275,7 @@ export default function App() {
                   <div>
                     <h3 className="text-lg font-black text-slate-800 uppercase tracking-tight">Perform Ascension</h3>
                     <p className="text-[10px] text-slate-500 mt-1 uppercase font-bold tracking-widest">
-                      Reset requirement: {currentPrestigeThreshold.toLocaleString()} Points
+                      Reset requirement: {formatNumber(currentPrestigeThreshold)} Points
                     </p>
                   </div>
 
