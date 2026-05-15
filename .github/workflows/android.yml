@@ -36,8 +36,8 @@ jobs:
       run: |
         npm install @capacitor/core @capacitor/cli
         
-        # Initializes capacitor pointing directly to the root dist folder
-        npx cap init "Clicker Game" "com.juannity.clicker" --web-dir=dist --noprompt
+        # FIXED: Passes parameters correctly without using the invalid --noprompt flag
+        npx cap init "Clicker Game" "com.juannity.clicker" --web-dir=dist
         
         npm install @capacitor/android
         npx cap add android
