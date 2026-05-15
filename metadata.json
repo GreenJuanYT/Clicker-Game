@@ -1,6 +1,6 @@
 {
-  "name": "Clicker Quest",
-  "description": "A lightweight incremental clicker game optimized for mobile performance and simplicity.",
+  "name": "Neon Clicker Legacy",
+  "description": "A high-contrast, legacy-compatible incremental clicker game with offline saving.",
   "requestFramePermissions": [],
   "majorCapabilities": []
 }
