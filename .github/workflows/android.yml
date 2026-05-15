@@ -1,0 +1,49 @@
+name: Publish Android APK Release
+on:
+  push:
+    branches: [ main, master ]
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Source Code
+      uses: actions/checkout@v4
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: 20
+
+    - name: Install Dependencies & Build Web App
+      env:
+        VITE_GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+      run: |
+        npm install
+        npm run build
+
+    - name: Convert Web App to Android Container
+      run: |
+        npm install -g cordova
+        cordova create android-project com.juannity.clicker ClickerGame
+        cd android-project
+        rm -rf www
+        cp -r ../dist www
+        cordova platform add android
+        cordova build android --copy-to=../clicker-game.apk
+
+    - name: Create GitHub Release and Upload APK Asset
+      uses: softprops/action-gh-release@v2
+      with:
+        tag_name: v1.0.${{ github.run_number }}
+        name: Clicker Game Release v1.0.${{ github.run_number }}
+        body: |
+          Automated mobile application build compiled with Gemini AI integration.
+          Download the raw `.apk` file below to install and play offline on your Android device.
+        draft: false
+        prerelease: false
+        files: clicker-game.apk
