@@ -26,15 +26,25 @@ jobs:
         npm install
         npm run build
 
-    - name: Convert Web App to Android Container
+    - name: Convert Web App to Android Using Capacitor
       run: |
-        npm install -g cordova
-        cordova create android-project com.juannity.clicker ClickerGame
-        cd android-project
-        rm -rf www
-        cp -r ../dist www
-        cordova platform add android
-        cordova build android --copy-to=../clicker-game.apk
+        # Install the mobile wrapper tools
+        npm install @capacitor/core @capacitor/cli
+        
+        # Configure Capacitor to point to your build output folder
+        npx cap init "Clicker Game" "com.juannity.clicker" --web-dir=dist --noprompt
+        
+        # Pull in the Android library and prepare the asset package
+        npm install @capacitor/android
+        npx cap add android
+        npx cap sync
+        
+        # Move into the native folder and run a clean headless build
+        cd android
+        ./gradlew assembleDebug
+        
+        # Copy the finished mobile app package up to the root folder
+        cp app/build/outputs/apk/debug/app-debug.apk ../clicker-game.apk
 
     - name: Create GitHub Release and Upload APK Asset
       uses: softprops/action-gh-release@v2
@@ -46,4 +56,5 @@ jobs:
           Download the raw `.apk` file below to install and play offline on your Android device.
         draft: false
         prerelease: false
+        fail_on_unmatched_files: true # Forces GitHub to show an error if the APK fails to build!
         files: clicker-game.apk
