@@ -16,7 +16,13 @@ jobs:
     - name: Set up Node.js
       uses: actions/setup-node@v4
       with:
-        node-version: 20
+        node-version: 24
+
+    - name: Set up Java JDK
+      uses: actions/setup-java@v4
+      with:
+        distribution: 'temurin'
+        java-version: '17'
 
     - name: Install Dependencies & Build Web App
       env:
@@ -26,35 +32,34 @@ jobs:
         npm install
         npm run build
 
-    - name: Convert Web App to Android Using Capacitor
+    - name: Convert Clicker Game to Android Package
       run: |
-        # Install the mobile wrapper tools
         npm install @capacitor/core @capacitor/cli
         
-        # Configure Capacitor to point to your build output folder
+        # Initializes capacitor pointing directly to the root dist folder
         npx cap init "Clicker Game" "com.juannity.clicker" --web-dir=dist --noprompt
         
-        # Pull in the Android library and prepare the asset package
         npm install @capacitor/android
         npx cap add android
         npx cap sync
         
-        # Move into the native folder and run a clean headless build
+        # Moves into the generated android container to build the app
         cd android
+        chmod +x gradlew
         ./gradlew assembleDebug
         
-        # Copy the finished mobile app package up to the root folder
+        # Copies the final clicker game package to the main root folder
         cp app/build/outputs/apk/debug/app-debug.apk ../clicker-game.apk
 
     - name: Create GitHub Release and Upload APK Asset
-      uses: softprops/action-gh-release@v2
+      uses: softprops/action-gh-release@v3
       with:
         tag_name: v1.0.${{ github.run_number }}
         name: Clicker Game Release v1.0.${{ github.run_number }}
         body: |
-          Automated mobile application build compiled with Gemini AI integration.
-          Download the raw `.apk` file below to install and play offline on your Android device.
+          Your custom Gemini AI Clicker Game mobile build is ready!
+          Download the `clicker-game.apk` file below to install and play offline on your phone.
         draft: false
         prerelease: false
-        fail_on_unmatched_files: true # Forces GitHub to show an error if the APK fails to build!
+        fail_on_unmatched_files: true
         files: clicker-game.apk
